@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+</head>
+<body>
+
+    <div></div>
+
+    <script>
+        let div = document.querySelector("div")
+
+setInterval(()=>{
+    let date = new Date()
+    let hour = date.getHours()
+    let minute = date.getMinutes()
+    let second = date.getSeconds()
+
+    minute = formatTime(minute)
+    second = formatTime(second)
+    
+    let time = hour+":"+minute+":"+second
+
+    div.innerText=time
+    },1000)
+
+    function formatTime(value){
+        if(value<10){
+            value="0"+value
+        }
+        return value
+    }
+    </script>
+</body>
+</html>
